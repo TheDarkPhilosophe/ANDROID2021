@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TD6</string>
+    <string name="nomRep">Nom du repertoire :</string>
+    <string name="valider">Valider</string>
+</resources>
