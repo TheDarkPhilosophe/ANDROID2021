@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NewsList</string>
+    <string name="login_string">Login</string>
+    <string name="details_string">Details</string>
+    <string name="logout_string">Log out</string>
+    <string name="ok_button">OK</string>
+    <string name="google_string">Google</string>
+    <string name="username_input">Username</string>
+</resources>
