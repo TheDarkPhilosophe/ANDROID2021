@@ -1,16 +1,15 @@
-package com.example.tp_android.adapters
+package com.example.tpmovies.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.tp_android.R
-import com.example.tp_android.model.Movie
-import com.example.tp_android.service.PopularMovies
+import com.example.tpmovies.R
+import com.example.tpmovies.model.Movie
+import com.example.tpmovies.service.PopularMovies
 
 class RecyclerAdapter(private val liste : List<Movie>, val context: Context, private val listener: (Movie) -> Unit) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
 

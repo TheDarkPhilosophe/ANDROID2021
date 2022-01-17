@@ -1,4 +1,4 @@
-package com.example.tp_android
+package com.example.tpmovies
 
 import org.junit.Test
 

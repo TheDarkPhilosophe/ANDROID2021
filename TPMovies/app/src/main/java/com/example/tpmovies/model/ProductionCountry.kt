@@ -1,4 +1,4 @@
-package com.example.tp_android.model
+package com.example.tpmovies.model
 
 
 import com.google.gson.annotations.SerializedName

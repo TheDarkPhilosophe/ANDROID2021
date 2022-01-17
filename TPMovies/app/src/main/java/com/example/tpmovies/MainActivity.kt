@@ -1,15 +1,15 @@
-package com.example.tp_android
+package com.example.tpmovies
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tp_android.adapters.RecyclerAdapter
-import com.example.tp_android.model.Movie
-import com.example.tp_android.service.PopularMovies
+import com.example.tpmovies.adapters.RecyclerAdapter
+import com.example.tpmovies.model.Movie
+import com.example.tpmovies.service.PopularMovies
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -18,9 +18,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
     private val liste: ArrayList<Movie> = ArrayList()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val  upcoming_btn =findViewById<Button>(R.id.upcoming_btn)
+        upcoming_btn.setOnClickListener(){
+            val intent = Intent(this, UpcomingMovies::class.java)
+            startActivity(intent)
+        }
+
 
         val recycler = findViewById<RecyclerView>(R.id.RecyclerPoster)
         recycler.adapter = RecyclerAdapter(liste, this)  { movie ->
@@ -40,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         service.getPopularMovies().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                title="Popular Movies"
                 liste.addAll(it.results)
                 recycler.adapter?.notifyDataSetChanged()
             }, { Log.e("erreur api", it.toString()) })
